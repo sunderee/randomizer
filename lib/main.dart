@@ -28,6 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<String> _players = [];
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
