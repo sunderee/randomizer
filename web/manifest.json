@@ -1,0 +1,23 @@
+{
+    "name": "randomizer",
+    "short_name": "randomizer",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#0175C2",
+    "description": "Randomize creation of PUBG teams",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
