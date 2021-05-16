@@ -14,4 +14,4 @@ COPY . .
 EXPOSE 8080
 RUN flutter build web --release 
 WORKDIR /home/developer/build/web
-CMD [ "python3 -m http.server 8080" ]
+CMD python3 -m http.server 8080
