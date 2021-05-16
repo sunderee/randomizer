@@ -18,3 +18,7 @@ or run the app containerized
 docker build -t randomizer .
 docker run --name randomizer -p 8080:8080 randomizer
 ```
+
+## License
+
+Open-sourced under [MIT license](LICENSE).
