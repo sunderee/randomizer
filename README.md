@@ -1,3 +1,3 @@
 # randomizer
 
-Randomize creation of PUBG teams.
+Randomize creation of PUBG teams built with Flutter.
