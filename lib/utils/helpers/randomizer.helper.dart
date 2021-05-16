@@ -13,31 +13,17 @@ RandomizerModel runRandomizer(List<String> players) {
 
   var mode = random.nextBool() ? 'TPP' : 'FPP';
   var map = MAPS.elementAt(random.nextInt(MAPS.length));
-  if (map == 'Gun Game (Library)') {
-    return RandomizerModel(
-      _generateTeams(players, random),
-      mode,
-      map,
-    );
-  }
 
-  var weapon = WEAPONS.elementAt(random.nextInt(WEAPONS.length));
-  return RandomizerModel(
-    _generateTeams(players, random),
-    mode,
-    map,
-    weapon: weapon,
-  );
-}
-
-Tuple<List<String>, List<String>> _generateTeams(
-  List<String> players,
-  Random randomInstance,
-) {
   var shuffledPlayers = players.toList()..shuffle();
   var perTeam = players.length ~/ 2;
-  return Tuple(
+  var teams = Tuple(
     shuffledPlayers.sublist(0, perTeam),
     shuffledPlayers.sublist(perTeam, players.length),
   );
+
+  if (map == 'Gun Game (Library)') {
+    return RandomizerModel(teams, mode, map);
+  }
+  var weapon = WEAPONS.elementAt(random.nextInt(WEAPONS.length));
+  return RandomizerModel(teams, mode, map, weapon: weapon);
 }
