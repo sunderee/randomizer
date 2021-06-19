@@ -11,17 +11,21 @@ RandomizerModel runRandomizer(List<String> players) {
   }
   final random = Random.secure();
 
-  var mode = random.nextBool() ? 'TPP' : 'FPP';
-  var map = MAPS.elementAt(random.nextInt(MAPS.length));
+  final mode = random.nextBool() ? 'TPP' : 'FPP';
+  final maps = List.from(MAPS);
+  if (players.length % 2 != 0) {
+    maps.removeAt(maps.indexOf('Domination'));
+  }
+  final map = maps.elementAt(random.nextInt(maps.length));
 
-  var shuffledPlayers = players.toList()..shuffle();
-  var perTeam = players.length ~/ 2;
-  var teams = Tuple(
+  final shuffledPlayers = players.toList()..shuffle();
+  final perTeam = players.length ~/ 2;
+  final teams = Tuple(
     shuffledPlayers.sublist(0, perTeam),
     shuffledPlayers.sublist(perTeam, players.length),
   );
 
-  if (map == 'Gun Game (Library)') {
+  if ((map as String).contains('Gun Game')) {
     return RandomizerModel(teams, mode, map);
   }
   var weapon = WEAPONS.elementAt(random.nextInt(WEAPONS.length));

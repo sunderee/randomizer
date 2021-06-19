@@ -49,8 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Text(
                                     'Team #1',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
@@ -71,8 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Text(
                                     'Team #2',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
@@ -93,8 +95,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Text(
                                     'Map, mode, weapon',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
@@ -134,8 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       children: _players
                           .map((String player) => GestureDetector(
-                                onTap: () =>
-                                    setState(() => _players.remove(player)),
+                                onTap: () => setState(
+                                  () => _players.remove(player),
+                                ),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 4.0,
@@ -162,12 +166,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         try {
                           final data = runRandomizer(_players);
                           setState(() {
-                            _firstTeam = data.teams.first.join(', ');
-                            _secondTeam = data.teams.second.join(', ');
-                            _gameDetails =
-                                'Map: ${data.map}, mode: ${data.mode}';
+                            _firstTeam = data.teams.first.join('\n');
+                            _secondTeam = data.teams.second.join('\n');
+                            _gameDetails = '${data.map}\n${data.mode}\n';
                             if (data.weapon != null) {
-                              _gameDetails += ', weapon ${data.weapon}';
+                              _gameDetails += '${data.weapon}';
                             }
                           });
                         } on RandomizerException catch (e) {
