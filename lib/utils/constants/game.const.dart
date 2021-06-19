@@ -35,4 +35,6 @@ const List<String> MAPS = [
   'Gun Game (Library)',
   'Domination',
   'Assault (Ruins)',
+  'Hangar (TDM)',
+  'Hangar (Gun Game)'
 ];
