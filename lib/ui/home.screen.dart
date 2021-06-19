@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Card(
                           child: Container(
                             width: 250.0,
-                            height: 120.0,
+                            height: 150.0,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
@@ -55,7 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
-                                  Text(_firstTeam),
+                                  Text(
+                                    _firstTeam,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ],
                               ),
                             ),
@@ -64,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Card(
                           child: Container(
                             width: 250.0,
-                            height: 120.0,
+                            height: 150.0,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
@@ -78,7 +81,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
-                                  Text(_secondTeam),
+                                  Text(
+                                    _secondTeam,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ],
                               ),
                             ),
@@ -87,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Card(
                           child: Container(
                             width: 250.0,
-                            height: 120.0,
+                            height: 150.0,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
@@ -101,7 +107,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Divider(),
                                   SizedBox(height: 8.0),
-                                  Text(_gameDetails),
+                                  Text(
+                                    _gameDetails,
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ],
                               ),
                             ),
