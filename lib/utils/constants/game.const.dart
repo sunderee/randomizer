@@ -1,4 +1,4 @@
-const List<String> WEAPONS = [
+const List<String> weapons = [
   'AKM',
   'SCAR-L',
   'UMP45',
@@ -30,7 +30,7 @@ const List<String> WEAPONS = [
   'Groza',
 ];
 
-const List<String> MAPS = [
+const List<String> allMaps = [
   'Team Deathmatch',
   'Gun Game (Library)',
   'Domination',

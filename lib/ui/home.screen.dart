@@ -4,6 +4,8 @@ import 'package:randomizer/utils/exceptions/randomizer.exception.dart';
 import 'package:randomizer/utils/helpers/randomizer.helper.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -26,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Randomizer'),
+        title: const Text('Randomizer'),
       ),
       body: MediaQuery.of(context).size.aspectRatio >= 1.37
           ? Padding(
@@ -47,14 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Team #1',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Divider(),
-                                  SizedBox(height: 8.0),
+                                  const Divider(),
+                                  const SizedBox(height: 8.0),
                                   Text(
                                     _firstTeam,
                                     textAlign: TextAlign.center,
@@ -68,19 +70,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Container(
                             width: 250.0,
                             height: 150.0,
+                            color: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Team #2',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Divider(),
-                                  SizedBox(height: 8.0),
+                                  const Divider(),
+                                  const SizedBox(height: 8.0),
                                   Text(
                                     _secondTeam,
                                     textAlign: TextAlign.center,
@@ -94,19 +97,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Container(
                             width: 250.0,
                             height: 150.0,
+                            color: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Map, mode, weapon',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Divider(),
-                                  SizedBox(height: 8.0),
+                                  const Divider(),
+                                  const SizedBox(height: 8.0),
                                   Text(
                                     _gameDetails,
                                     textAlign: TextAlign.center,
@@ -118,9 +122,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 56.0),
+                    const SizedBox(height: 56.0),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.66,
+                      color: Colors.white,
                       child: TextField(
                         controller: _controller,
                         decoration: InputDecoration(
@@ -130,9 +135,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() => _players.add(_controller.text));
                               _controller.clear();
                             },
-                            child: Text(
+                            child: const Text(
                               'ADD',
-                              style: TextStyle(color: COLOR_PRODUCT),
+                              style: TextStyle(color: colorProduct),
                             ),
                           ),
                         ),
@@ -142,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Row(
                       children: _players
                           .map((String player) => GestureDetector(
@@ -155,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: COLOR_PRODUCT_LIGHTER,
+                                      color: colorProductLighter,
                                       borderRadius: BorderRadius.circular(16.0),
                                     ),
                                     child: Padding(
@@ -167,9 +172,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               ))
                           .toList(),
                     ),
-                    _players.isEmpty ? SizedBox() : SizedBox(height: 24.0),
+                    _players.isEmpty
+                        ? const SizedBox()
+                        : const SizedBox(height: 24.0),
                     MaterialButton(
-                      color: COLOR_PRODUCT,
+                      color: colorProduct,
                       elevation: 0.0,
                       onPressed: () {
                         try {
@@ -179,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             _secondTeam = data.teams.second.join('\n');
                             _gameDetails = '${data.map}\n${data.mode}\n';
                             if (data.weapon != null) {
-                              _gameDetails += '${data.weapon}';
+                              _gameDetails += data.weapon ?? '';
                             }
                           });
                         } on RandomizerException catch (e) {
@@ -188,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         }
                       },
-                      child: Text(
+                      child: const Text(
                         'SUBMIT',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -197,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             )
-          : Center(child: Text('You need a bigger aspect ratio')),
+          : const Center(child: Text('You need a bigger aspect ratio')),
     );
   }
 }
