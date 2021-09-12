@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:randomizer/ui/home.screen.dart';
+import 'package:randomizer/ui/main.screen.dart';
 import 'package:randomizer/utils/constants/color.const.dart';
 
 class App extends StatelessWidget {
@@ -11,11 +11,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: colorProduct,
-        accentColor: colorProduct,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(elevation: 0.0),
       ),
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
