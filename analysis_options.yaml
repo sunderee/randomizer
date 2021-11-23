@@ -4,6 +4,9 @@ analyzer:
   exclude: [build/**]
   language:
     strict-raw-types: true
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
 
 linter:
   rules:
@@ -11,4 +14,4 @@ linter:
     - prefer_single_quotes
     - sort_child_properties_last
     - unawaited_futures
-    - use_full_hex_values_for_flutter_colors
+    - unsafe_html

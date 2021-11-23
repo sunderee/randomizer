@@ -12,7 +12,7 @@ RandomizerModel runRandomizer(List<String> players) {
   final random = Random.secure();
 
   final mode = random.nextBool() ? 'TPP' : 'FPP';
-  final maps = List.from(allMaps);
+  final maps = List<String>.from(allMaps);
   if (players.length % 2 != 0) {
     maps.removeAt(maps.indexOf('Domination'));
   }
@@ -25,7 +25,7 @@ RandomizerModel runRandomizer(List<String> players) {
     shuffledPlayers.sublist(perTeam, players.length),
   );
 
-  if ((map as String).contains('Gun Game')) {
+  if ((map).contains('Gun Game')) {
     return RandomizerModel(teams, mode, map);
   }
   var weapon = weapons.elementAt(random.nextInt(weapons.length));
